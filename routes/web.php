@@ -68,7 +68,7 @@ Route::get('/profilCek', [UserController::class, 'showProfile'])
 ->middleware('check.route');//diambil dari app/dulu kernel
 
 //Route group with middleware
-Route::middleware([check.user])->group(function () {
+Route::middleware('check.user')->group(function () {
     Route::get('/dashboardLogin', [UserController::class, 'dashboardL'])->name('dashboard');
     Route::get('/profileLogin', [UserController::class, 'profileL'])->name('profile');
     Route::get('/settingsLogin', [UserController::class, 'settingsL'])->name('settings');
